@@ -57,6 +57,17 @@ Array(200).fill().forEach(addStar);
 const skyTexture = new THREE.TextureLoader().load('sky.jpg');
 scene.background = skyTexture;
 
+function moveCamera() {
+
+    const t = document.body.getBoundingClientRect().top;
+
+    camera.position.z = t * -0.01;
+    camera.position.x = t * -0.0002;
+    camera.rotation.y = t * -0.0002;
+}
+
+document.body.onscroll = moveCamera;
+
 // Below is recursive function so we don't have to call the render method over and over again, similar to a game loop.
 function animate() {
     requestAnimationFrame(animate); // Mechanism that tells the browser you want to perform an animation.
