@@ -29,11 +29,12 @@ const torus = new THREE.Mesh( geometry, material ); // The mesh is the actual co
 
 scene.add(torus); // Actually adds the mesh
 
-const pointLight = new THREE.PointLight(0xffffff); // Emits light in all directions.
-pointLight.position.set(0, 0, 0);
+const pointLight = new THREE.PointLight(0xffffff, 1000, 100); // Emits light in all directions.
+pointLight.position.set(20,20, 20);
 
 const ambientLight = new THREE.AmbientLight(0xffffff);
-scene.add(pointLight, ambientLight);
+// scene.add(pointLight, ambientLight)
+scene.add(ambientLight);
 
 const lightHelper = new THREE.PointLightHelper(pointLight); // Add helper wireframe to see light source.
 const gridHelper = new THREE.GridHelper(200, 50); // Adds grid to help with development.
@@ -56,6 +57,24 @@ Array(200).fill().forEach(addStar);
 
 const skyTexture = new THREE.TextureLoader().load('sky.jpg');
 scene.background = skyTexture;
+
+const seanTexture = new THREE.TextureLoader().load('headshot.jpg');
+const sean = new THREE.Mesh(
+    new THREE.BoxGeometry(5, 5, 5),
+    new THREE.MeshBasicMaterial({ map: seanTexture })
+);
+
+// scene.add(sean);
+
+const moonTexture = new THREE.TextureLoader().load('circuitboard.jpg');
+
+const moon = new THREE.Mesh(
+    new THREE.SphereGeometry(3, 32, 32),
+    new THREE.MeshStandardMaterial({ map: moonTexture })
+    /* Check tutorial in README for normal mapping, which let's you layer more than one texture for uneven surfaces */
+);
+
+scene.add(moon);
 
 function moveCamera() {
 
