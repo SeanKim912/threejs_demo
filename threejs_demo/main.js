@@ -71,10 +71,13 @@ const moonTexture = new THREE.TextureLoader().load('circuitboard.jpg');
 const moon = new THREE.Mesh(
     new THREE.SphereGeometry(3, 32, 32),
     new THREE.MeshStandardMaterial({ map: moonTexture })
-    /* Check tutorial in README for normal mapping, which let's you layer more than one texture for uneven surfaces */
+    /* Check tutorial in README for normal mapping, which let's you layer more than one texture for uneven surfaces  */
 );
 
 scene.add(moon);
+// The following notations do the same thing, matter of preference
+moon.position.z = 30;
+moon.position.setX(-10);
 
 function moveCamera() {
 
