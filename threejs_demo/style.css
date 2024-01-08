@@ -6,4 +6,11 @@ canvas {
 
 main {
     position: absolute;
+    width: 100vw;
+    width: 100%;
+    margin: 0px auto;
+    padding: 120px 0px;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
 }

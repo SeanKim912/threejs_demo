@@ -27,7 +27,10 @@ const material = new THREE.MeshStandardMaterial( { color: 0xFF6347 } ); // Stand
 // const material = new THREE.MeshBasicMaterial( { color: 0xFF6347, wireframe: true } );
 const torus = new THREE.Mesh( geometry, material ); // The mesh is the actual combination of geometry and material.
 
-scene.add(torus); // Actually adds the mesh
+// Actually adds the mesh
+scene.add(torus);
+torus.position.z = 30;
+torus.position.x = -10;
 
 const pointLight = new THREE.PointLight(0xffffff, 1000, 100); // Emits light in all directions.
 pointLight.position.set(20,20, 20);
@@ -38,7 +41,7 @@ scene.add(ambientLight);
 
 const lightHelper = new THREE.PointLightHelper(pointLight); // Add helper wireframe to see light source.
 const gridHelper = new THREE.GridHelper(200, 50); // Adds grid to help with development.
-scene.add(lightHelper, gridHelper);
+// scene.add(lightHelper, gridHelper);
 
 const controls = new OrbitControls(camera, renderer.domElement); // Instantiates imported examples class that allows camera control.
 
@@ -82,6 +85,10 @@ moon.position.setX(-10);
 function moveCamera() {
 
     const t = document.body.getBoundingClientRect().top;
+
+    moon.rotation.x += 0.05;
+    moon.rotation.y += 0.075;
+    moon.rotation.z += 0.05;
 
     camera.position.z = t * -0.01;
     camera.position.x = t * -0.0002;
