@@ -23,7 +23,7 @@ camera.position.setX(-3);
 renderer.render(scene, camera);
 
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100); // The actual 3D shape supported by 3js
-// Material is rapping paper for geometry. 3js has default materials with different properties, but there are custom shaders using WEBGL
+// Material is wrapping paper for geometry. 3js has default materials with different properties, but there are custom shaders using WEBGL
 const material = new THREE.MeshStandardMaterial( { color: 0xff6347 } ); // Standard materials need lighting to be visible.
 // const material = new THREE.MeshBasicMaterial( { color: 0xFF6347, wireframe: true } );
 const torus = new THREE.Mesh( geometry, material ); // The mesh is the actual combination of geometry and material.
@@ -44,21 +44,6 @@ scene.add(ambientLight);
 
 // Instantiates imported examples class that allows camera control.
 // const controls = new OrbitControls(camera, renderer.domElement);
-
-function addStar() {
-    const geometry = new THREE.SphereGeometry(0.25, 24, 24);
-    const material = new THREE.MeshStandardMaterial( { color: 0xffffff} );
-    const star = new THREE.Mesh( geometry, material );
-
-    const [x, y, z] = Array(3)
-    .fill()
-    .map(() => THREE.MathUtils.randFloatSpread(100)); // code to generate stars at random coordinates.
-
-    star.position.set(x, y, z);
-    scene.add(star);
-}
-
-Array(200).fill().forEach(addStar);
 
 const skyTexture = new THREE.TextureLoader().load('sky.jpg');
 scene.background = skyTexture;
