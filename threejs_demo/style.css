@@ -11,9 +11,8 @@ main {
     margin: 0px auto;
     padding: 120px 0px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-around;
 }
 
 section {

@@ -32,7 +32,7 @@ const torus = new THREE.Mesh( geometry, material ); // The mesh is the actual co
 scene.add(torus);
 
 const pointLight = new THREE.PointLight(0xffffff, 1000, 100); // Emits light in all directions.
-pointLight.position.set(20,20, 20);
+pointLight.position.set(20, 20, 20);
 
 const ambientLight = new THREE.AmbientLight(0xffffff);
 // scene.add(pointLight, ambientLight)
@@ -48,7 +48,7 @@ scene.add(ambientLight);
 const skyTexture = new THREE.TextureLoader().load('sky.jpg');
 scene.background = skyTexture;
 
-const seanTexture = new THREE.TextureLoader().load('headshot.jpg');
+const seanTexture = new THREE.TextureLoader().load('typescript.svg');
 const sean = new THREE.Mesh(
     new THREE.BoxGeometry(5, 5, 5),
     new THREE.MeshBasicMaterial({ map: seanTexture })
